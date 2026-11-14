@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandito Burrito | Tex-Mex, Burger & Craft Beer — Reggio Emilia & Sesso</title>
+  <meta name="description" content="Bandito Burrito Pub: Burritos, Smash Burger e Birre Artigianali a Reggio Emilia e nella nuova sede di Sesso. Scopri i menu digitali.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Principale -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* 1. HERO POTENZIATA */
+    .hero-restyle {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255, 184, 0, 0.12), transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(230, 57, 70, 0.12), transparent 45%);
+    }
+    .hero-badges-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    /* 2. GALLERIA BENTO CIBO & LOCALI */
+    .bento-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 230px;
+      gap: 14px;
+    }
+    .bento-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      cursor: pointer;
+    }
+    .bento-item.wide { grid-column: span 2; }
+    .bento-item.tall { grid-row: span 2; }
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .bento-item:hover img {
+      transform: scale(1.06);
+    }
+    .bento-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 28px 16px 14px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .bento-caption small {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .bento-caption strong {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    /* LIGHTBOX FOTO A TUTTO SCHERMO */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 400;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+    .lightbox-modal img {
+      max-width: 92vw;
+      max-height: 82vh;
+      border-radius: 16px;
+      border: 1px solid var(--gold);
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: var(--gold);
+      color: #111;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* 3. DOREL LIVE EMBED STAGE */
+    .reels-section {
+      padding: 72px 0;
+      background: linear-gradient(180deg, #111010 0%, #171414 50%, #111010 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .influencer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .creator-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 184, 0, 0.35);
+      padding: 8px 16px 8px 8px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    .creator-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .creator-pill strong {
+      font-size: 13px;
+      color: var(--gold);
+      display: block;
+      line-height: 1.1;
+    }
+    .creator-pill span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .reels-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 8px 4px 18px;
+    }
+    .reels-track::-webkit-scrollbar { display: none; }
+
+    .social-embed-card {
+      flex: 0 0 315px;
+      height: 560px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background: #0d0c0c;
+      border: 2px solid rgba(255, 184, 0, 0.28);
+      scroll-snap-align: center;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .social-embed-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+    .embed-platform-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #181616;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 800;
+      z-index: 2;
+    }
+    .embed-platform-bar span {
+      color: var(--gold);
+    }
+    .embed-platform-bar a {
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: underline;
+    }
+    .embed-frame-wrap {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+    .embed-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .embed-frame-wrap blockquote.tiktok-embed {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      border: none !important;
+    }
+
+    .reels-nav-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .reel-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .reel-arrow:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* 5. SLIDER RECENSIONI GOOGLE & TRIPADVISOR */
+    .reviews-slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .reviews-filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .rev-pill-btn {
+      background: var(--bg-card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 15px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .rev-pill-btn.active,
+    .rev-pill-btn:hover {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+    }
+
+    .reviews-carousel-track {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 6px 2px 18px;
+    }
+    .reviews-carousel-track::-webkit-scrollbar { display: none; }
+
+    .review-slide-card {
+      flex: 0 0 350px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .review-slide-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 184, 0, 0.45);
+    }
+    .rev-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .rev-source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+    .rev-sede-tag {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 99px;
+      background: rgba(255, 184, 0, 0.14);
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .rev-sede-tag.sesso {
+      background: rgba(230, 57, 70, 0.18);
+      color: #ff858f;
+    }
+    .rev-stars {
+      color: var(--gold);
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+    .rev-text {
+      font-size: 14px;
+      color: #e6e1dc;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .rev-author {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      font-size: 12px;
+    }
+    .rev-author strong {
+      color: var(--text);
+      font-size: 13px;
+    }
+    .rev-author span {
+      color: var(--muted);
+    }
+
+@media (max-width: 860px) {
+      .hero-restyle {
+        padding: 32px 0 36px;
+        text-align: center;
+      }
+
+      /* 1. HERO CENTRATA SU MOBILE */
+      .hero-badges-row {
+        justify-content: center;
+      }
+      .hero-restyle .hero-lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .location-cards-hero .loc-hero-btn {
+        text-align: center;
+        align-items: center;
+      }
+
+      /* 2. HEADER VIDEO DI DOREL CENTRATO SU MOBILE */
+      .influencer-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .influencer-header > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      .creator-pill {
+        text-align: left;
+      }
+
+      /* 3. LA STORIA: TESTO SOPRA E FOTO SOTTO, SOLO TITOLI CENTRATI */
+      .story-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .story-text {
+        order: 1;
+      }
+      .story-media {
+        order: 2;
+      }
+      .story-text .section-tag,
+      .story-text h2 {
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* 4. HEADER RECENSIONI CENTRATO SU MOBILE */
+      .reviews-slider-head {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .reviews-slider-head > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      .reviews-filter-pills {
+        justify-content: center;
+      }
+
+      /* 5. GALLERIA, REELS E RECENSIONI */
+      .bento-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 175px;
+      }
+      .bento-item.wide { grid-column: span 2; }
+      .bento-item.tall { grid-row: span 1; }
+      .reels-nav-btns { display: none; }
+      .social-embed-card {
+        flex: 0 0 290px;
+        height: 520px;
+      }
+      .review-slide-card {
+        flex: 0 0 295px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (SOLO MENU RE, MENU SESSO, CONTATTI) -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <img src="images/picwish_ew.webp" alt="Bandito Burrito Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">BANDITO <em>BURRITO</em></span>
+          <span class="brand-sub">TEX-MEX • BURGER • CRAFT BEER</span>
+        </div>
+      </a>
+
+      <!-- Navigazione Desktop -->
+      <nav class="main-nav">
+        <a href="menu-sede1.html" class="qr-nav-btn">📖 Menu RE</a>
+        <a href="menu-sede2.html" class="qr-nav-btn">📖 Menu Sesso</a>
+        <a href="contatti.html" class="qr-nav-btn">📍 Contatti</a>
+      </nav>
+
+      <!-- Navigazione Mobile centrata -->
+      <div class="mobile-top-links">
+        <a href="menu-sede1.html" class="qr-nav-btn">📖 Menu RE</a>
+        <a href="menu-sede2.html" class="qr-nav-btn">📖 Menu Sesso</a>
+        <a href="contatti.html" class="qr-nav-btn">📍 Contatti</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO PRINCIPALE ("IL GUSTO FUORILEGGE...") -->
+  <section class="hero-restyle">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badges-row">
+          <span class="eyebrow" style="margin-bottom:0;">🔥 DUE SEDI A REGGIO EMILIA</span>
+          <span class="eyebrow" style="margin-bottom:0; background:rgba(255,184,0,0.15); color:var(--gold);">🌮 TEX-MEX & SMASH BURGER</span>
+        </div>
+
+        <h1>IL GUSTO <span class="text-gold">FUORILEGGE</span> CHE CREA DIPENDENZA.</h1>
+        <p class="hero-lead">
+          Burritos esplosivi, Smash Burger succosi, carne alla griglia e birre selezionate. Scegli la sede, apri il menu digitale o prenota il tuo tavolo.
+        </p>
+
+        <!-- Scelta rapida Menu delle 2 Sedi -->
+        <div class="location-cards-hero">
+          <a href="menu-sede1.html" class="loc-hero-btn">
+            <span class="loc-tag">📍 SEDE STORICA</span>
+            <strong>MENU REGGIO EMILIA</strong>
+            <small>Via Lombardia 1 — Apri il Menu →</small>
+          </a>
+
+          <a href="menu-sede2.html" class="loc-hero-btn loc-new">
+            <span class="loc-tag" style="color:#ff858f;">🚀 NUOVA APERTURA</span>
+            <strong>MENU SEDE SESSO</strong>
+            <small>Scopri il Menu della nuova sede →</small>
+          </a>
+        </div>
+
+        <!-- Pulsante diretto a Contatti & Prenotazioni -->
+        <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="contatti.html#prenota-form" class="btn btn-gold" style="flex: 1; min-width: 220px;">
+            📅 Prenota un Tavolo
+          </a>
+          <a href="contatti.html" class="btn btn-outline" style="flex: 1; min-width: 180px;">
+            📍 Orari & Contatti e Sedi
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-img-box">
+        <img src="images/burger_home.webp" alt="Bandito Smash Burger & Burrito">
+        <div class="floating-badge">
+          <span>⭐ Oltre 1.000 Recensioni</span>
+          <small>Sede Storica RE & Nuova Sede Sesso</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. BENTO GALLERY: I LOCALI, I PIATTI & L'ATMOSFERA -->
+  <section class="section" id="galleria">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">📸 DENTRO IL MONDO BANDITO</span>
+        <h2>I LOCALI, I PIATTI & <span class="text-gold">L'ATMOSFERA</span></h2>
+      </div>
+
+      <div class="bento-gallery" id="bento-gallery">
+        <div class="bento-item wide tall" data-gcat="food">
+          <img src="images/smash_burger.webp" alt="Bandito Smash Burger" loading="lazy">
+          <div class="bento-caption">
+            <small>🍔 SIGNATURE BURGER</small>
+            <strong>Bandito & Smash Burger Fatti in Casa</strong>
+          </div>
+        </div>
+
+        <div class="bento-item" data-gcat="locali">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=700&q=80" alt="Sala Interna Bandito Burrito" loading="lazy">
+          <div class="bento-caption">
+            <small>📍 VIA LOMBARDIA — RE</small>
+            <strong>La Sede Storica</strong>
+          </div>
+        </div>
+
+        <div class="bento-item" data-gcat="food">
+          <img src="images/burrito_home.webp" alt="Pork Burrito" loading="lazy">
+          <div class="bento-caption">
+            <small>🌯 TEX-MEX</small>
+            <strong>I Nostri Burritos</strong>
+          </div>
+        </div>
+
+        <div class="bento-item wide" data-gcat="locali">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80" alt="Nuova Sede Sesso" loading="lazy">
+          <div class="bento-caption">
+            <small>🚀 NUOVA APERTURA</small>
+            <strong>Il Nuovo Locale di Sesso</strong>
+          </div>
+        </div>
+
+        <div class="bento-item" data-gcat="food">
+          <img src="images/spare_ribs.webp" alt="Spare Ribs alla Griglia" loading="lazy">
+          <div class="bento-caption">
+            <small>🥩 GRIGLIA</small>
+            <strong>Spare Ribs & Scottona</strong>
+          </div>
+        </div>
+
+        <div class="bento-item" data-gcat="food">
+          <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=700&q=80" alt="Birre alla Spina" loading="lazy">
+          <div class="bento-caption">
+            <small>🍺 CRAFT BEER</small>
+            <strong>Bandito IPA KM0 & Spina</strong>
+          </div>
+        </div>
+
+        <div class="bento-item wide" data-gcat="locali">
+          <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=900&q=80" alt="Atmosfera Pub" loading="lazy">
+          <div class="bento-caption">
+            <small>🍻 VIBE & FRIENDS</small>
+            <strong>L'Atmosfera del Bandito</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. I VIDEO DI DOREL IN DIRETTA -->
+  <section class="reels-section" id="social-reels">
+    <div class="container">
+      <div class="influencer-header">
+        <div>
+          <div class="creator-pill">
+            <img src="images/picwish_ew.webp" alt="Dorel" class="creator-avatar">
+            <div>
+              <strong>🎬 DOREL × BANDITO TV</strong>
+              <span>Feed diretto da Instagram & TikTok</span>
+            </div>
+          </div>
+          <h2>I VIDEO DI DOREL <span class="text-gold">IN DIRETTA</span></h2>
+          <p style="color: var(--muted); max-width: 580px; font-size: 15px; margin-top: 6px;">
+            Guarda gli ultimi Reel e TikTok direttamente qui sul sito senza uscire dalla pagina.
+          </p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <a href="https://instagram.com/banditoburrito_re" target="_blank" rel="noopener" class="btn btn-gold">
+            📸 Instagram
+          </a>
+          <a href="https://www.tiktok.com/@banditoburritopub" target="_blank" rel="noopener" class="btn btn-outline">
+            🎵 TikTok
+          </a>
+          <div class="reels-nav-btns">
+            <button class="reel-arrow" id="reel-prev" aria-label="Precedente">←</button>
+            <button class="reel-arrow" id="reel-next" aria-label="Successivo">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAROSELLO POPOLATO AUTOMATICAMENTE DAI LINK INSTAGRAM / TIKTOK -->
+      <div class="reels-track" id="reels-track"></div>
+    </div>
+  </section>
+
+  <!-- 4. LA STORIA -->
+<!-- 4. LA STORIA -->
+  <section class="section section-alt" id="storia">
+    <div class="container story-grid">
+      <div class="story-media">
+        <img src="images/food_truck.webp?auto=format&fit=crop&w=800&q=80" alt="La storia di Bandito Burrito">
+        <div class="story-quote">
+          "Un luogo di ritrovo per gli amanti del cibo semplice ma saporito: ingredienti freschi, creatività e una vasta scelta di birre artigianali."
+          <strong>— Dorel Burlea, Bandito Burrito</strong>
+        </div>
+      </div>
+
+      <div class="story-text">
+        <span class="section-tag">LA MIA STORIA</span>
+        <h2>DAL FOOD TRUCK DEL 2019 AL DOPPIO LOCALE</h2>
+        <p style="margin-bottom: 12px;">
+Nato nel 2019, Bandito Burrito è un food truck dedicato alla cucina tex-mex e messicana, guidato dalla passione di un giovane chef. Protagonista è il burrito, accompagnato da tacos, nachos e altre specialità fresche e gustose.
+        </p>
+
+        <div class="timeline-steps">
+          <div class="t-step">
+            <span class="t-year">2019</span>
+            <div>
+              <p><strong>Nasce il Food Truck: </strong>Il successo è lampante fin dai primi mesi: la gente fa la fila per la qualità degli ingredienti e la creatività dei piatti, trovando una vera alternativa alle solite pizzerie e kebabbari.</p>
+            </div>
+          </div>
+          <div class="t-step">
+            <span class="t-year">2023</span>
+            <div>
+              <p> <strong>La Svolta: Il Pub: </strong>Sfruttando l’esperienza acquisita e la reputazione guadagnata su strada, l'attività compie il grande salto e diventa un vero e proprio pub con hamburger, carne alla griglia, piatti unici e birre artigianali.</p>
+            </div>
+          </div>
+          <div class="t-step">
+            <span class="t-year">OGGI</span>
+            <div>
+              <p><strong>Doppia Sede (Reggio Emilia & Sesso): </strong>Due punti di ritrovo per chi vuole mangiare bene, gustare sapori autentici e stare in compagnia.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SLIDER RECENSIONI VERE (GOOGLE & TRIPADVISOR - REGGIO EMILIA & SESSO) -->
+  <section class="section" id="recensioni">
+    <div class="container">
+      <div class="reviews-slider-head">
+        <div>
+          <span class="section-tag">⭐ COSA DICONO DI NOI</span>
+          <h2>RECENSIONI <span class="text-gold">GOOGLE & TRIPADVISOR</span></h2>
+          <p style="color: var(--muted); font-size: 14px; margin-top: 4px;">
+            Le recensioni verificate lasciate dai clienti nelle sedi di Reggio Emilia e Sesso.
+          </p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <div class="reviews-filter-pills">
+            <button class="rev-pill-btn active" data-rfilter="all">Tutte le Sedi</button>
+            <button class="rev-pill-btn" data-rfilter="re">📍 Sede RE</button>
+            <button class="rev-pill-btn" data-rfilter="sesso">🚀 Sede Sesso</button>
+          </div>
+          <div class="reels-nav-btns">
+            <button class="reel-arrow" id="rev-prev" aria-label="Precedente">←</button>
+            <button class="reel-arrow" id="rev-next" aria-label="Successivo">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carosello Slide Recensioni -->
+      <div class="reviews-carousel-track" id="reviews-track"></div>
+
+      <!-- Pulsanti diretti alle pagine ufficiali Google e TripAdvisor delle 2 sedi -->
+      <div class="reviews-4-grid" style="margin-top: 28px;">
+        <a href="https://g.page/r/Ce8_iWChal__EBM/review" target="_blank" rel="noopener" class="social-card">
+          <span class="loc-pill">SEDE STORICA • RE</span>
+          <strong>⭐ Google Reviews</strong>
+          <span>Leggi o lascia una recensione (RE)</span>
+        </a>
+
+        <a href="https://www.tripadvisor.it/Restaurant_Review-g194875-d25554077-Reviews-Bandito_Burrito_Pub-Reggio_Emilia_Province_of_Reggio_Emilia_Emilia_Romagna.html" target="_blank" rel="noopener" class="social-card">
+          <span class="loc-pill">SEDE STORICA • RE</span>
+          <strong>🦉 TripAdvisor</strong>
+          <span>Tutte le recensioni di Via Lombardia</span>
+        </a>
+
+        <a href="contatti.html" class="social-card">
+          <span class="loc-pill pill-chili">SEDE NUOVA • SESSO</span>
+          <strong>⭐ Google Reviews</strong>
+          <span>Leggi o lascia una recensione (Sesso)</span>
+        </a>
+
+        <a href="contatti.html" class="social-card">
+          <span class="loc-pill pill-chili">SEDE NUOVA • SESSO</span>
+          <strong>🦉 TripAdvisor</strong>
+          <span>Tutte le recensioni della sede di Sesso</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX PER INGRANDIRE LE FOTO DELLA GALLERIA -->
+  <div id="gallery-lightbox" class="lightbox-modal hidden">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img id="lightbox-img" src="" alt="Foto ingrandita">
+  </div>
+
+<!-- FOOTER CON SOLO HOME E PRIVACY POLICY -->
+  <footer class="site-footer" style="padding: 28px 0; border-top: 1px solid var(--border); background: #0d0c0c; font-size: 14px; color: var(--muted);">
+    <div class="container footer-inner" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>Copyright: <strong style="color: var(--text);">BanditoBurrito.it</strong></div>
+      <div class="footer-links" style="display: flex; gap: 20px; align-items: center;">
+        <a href="index.html">Home</a>
+        <a href="https://www.iubenda.com/privacy-policy/90189683" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu-engine.js"></script>
+  <script>
+    // URL diretti ai tab "SOCIAL" e "RECENSIONI" dello stesso Google Sheet del menu
+    const SOCIAL_SHEET_CSV_URL  = `https://docs.google.com/spreadsheets/d/${DEFAULT_SHEET_KEY}/gviz/tq?tqx=out:csv&sheet=SOCIAL`;
+    const REVIEWS_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${DEFAULT_SHEET_KEY}/gviz/tq?tqx=out:csv&sheet=RECENSIONI`;
+
+    // Video di emergenza se il tab SOCIAL non è raggiungibile
+    const FALLBACK_SOCIAL_VIDEOS = [
+      { title: '🔥 Smash Burger Extreme', url: 'https://www.instagram.com/reel/Dfrp6O8udYQ/' },
+      { title: '🌯 Burrito XXL Challenge', url: 'https://www.instagram.com/reel/DfR8En_OEiP/' }
+    ];
+
+    // Recensioni di emergenza se il tab RECENSIONI non è ancora stato creato
+    const FALLBACK_REVIEWS = [
+      {
+        author: 'Marco R.',
+        source: 'Google',
+        sede: 're',
+        sedeLabel: '📍 Sede RE',
+        date: 'Recensione verificata Google',
+        text: 'Smash burger clamoroso e burrito pieno fino all\'orlo! Carne di qualità altissima, pane super soffice e birra Bandito IPA davvero top. Dorel e i ragazzi ti fanno sentire subito a casa.'
+      },
+      {
+        author: 'Giulia T.',
+        source: 'TripAdvisor',
+        sede: 're',
+        sedeLabel: '📍 Sede RE',
+        date: 'Recensione verificata TripAdvisor',
+        text: 'Il miglior Tex-Mex e Burger pub di Reggio Emilia senza discussioni. Le Spare Ribs si sciolgono letteralmente in bocca e i nachos fatti al momento sono enormi. Consigliatissimo prenotare!'
+      },
+      {
+        author: 'Alessandro V.',
+        source: 'Google',
+        sede: 'sesso',
+        sedeLabel: '🚀 Sede Sesso',
+        date: 'Recensione verificata Google',
+        text: 'Nuovo locale a Sesso spaziale! Stessa qualità esplosiva della sede storica di Via Lombardia ma con ancora più spazio. Il Criminale Smash e il Pork Burrito creano dipendenza.'
+      },
+      {
+        author: 'Federica M.',
+        source: 'TripAdvisor',
+        sede: 're',
+        sedeLabel: '📍 Sede RE',
+        date: 'Recensione verificata TripAdvisor',
+        text: 'Lo seguivo fin dai tempi del Food Truck e nel pub si sono superati. Porzioni abbondanti, salse fatte in casa e opzioni senza glutine e vegetariane curate benissimo.'
+      },
+      {
+        author: 'Davide B.',
+        source: 'Google',
+        sede: 'sesso',
+        sedeLabel: '🚀 Sede Sesso',
+        date: 'Recensione verificata Google',
+        text: 'Atmosfera pazzesca nella nuova sede di Sesso! Servizio velocissimo anche di sabato sera, menu digitale comodissimo al tavolo e carne alla griglia cotta alla perfezione.'
+      },
+      {
+        author: 'Matteo C.',
+        source: 'TripAdvisor',
+        sede: 're',
+        sedeLabel: '📍 Sede RE',
+        date: 'Recensione verificata TripAdvisor',
+        text: 'Se amate i sapori decisi questo è il posto giusto. Burrito bello carico, jalapeños freschi e selezione di birre artigianali che si abbina benissimo. Torneremo sicuramente!'
+      }
+    ];
+
+    let ALL_REVIEWS = [...FALLBACK_REVIEWS];
+
+    // Parser generico per una riga CSV con gestione virgolette
+    function splitCSVLine(line) {
+      const cols = [];
+      let cur = '', inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+        else if (ch === '"') { inQuotes = !inQuotes; }
+        else if (ch === ',' && !inQuotes) { cols.push(cur.trim()); cur = ''; }
+        else { cur += ch; }
+      }
+      cols.push(cur.trim());
+      return cols.map(c => c.replace(/^"|"$/g, '').trim());
+    }
+
+    // --- GESTIONE RECENSIONI DA GOOGLE SHEET (TAB: RECENSIONI) ---
+    function parseReviewsCSV(text) {
+      const lines = text.trim().split(/\r?\n/);
+      return lines.slice(1).map(line => {
+        const cols = splitCSVLine(line);
+        const author = cols[0] || 'Cliente Bandito';
+        const rawSource = (cols[1] || 'Google').toLowerCase();
+        const source = rawSource.includes('trip') ? 'TripAdvisor' : 'Google';
+
+        const rawSede = (cols[2] || 'RE').toLowerCase();
+        const sede = rawSede.includes('sesso') || rawSede.includes('2') ? 'sesso' : 're';
+        const sedeLabel = sede === 'sesso' ? '🚀 Sede Sesso' : '📍 Sede RE';
+
+        const reviewText = cols[3] || '';
+        const visRaw = (cols[4] || 'vero').toLowerCase();
+        const disp = !['falso', 'false', '0', 'no'].includes(visRaw);
+
+        return {
+          author,
+          source,
+          sede,
+          sedeLabel,
+          date: `Recensione verificata ${source}`,
+          text: reviewText,
+          disp
+        };
+      }).filter(r => r.text.length > 5 && r.disp);
+    }
+
+    async function fetchSheetReviews() {
+      try {
+        const res = await fetch(REVIEWS_SHEET_CSV_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const csvText = await res.text();
+        const parsed = parseReviewsCSV(csvText);
+        if (!parsed.length) throw new Error('Tab RECENSIONI vuoto o non valido');
+        return parsed;
+      } catch (err) {
+        console.warn('Uso recensioni di fallback (tab RECENSIONI non ancora attivo):', err);
+        return FALLBACK_REVIEWS;
+      }
+    }
+
+    function renderReviewsCarousel(filterSede = 'all') {
+      const revTrack = document.getElementById('reviews-track');
+      if (!revTrack) return;
+
+      const list = filterSede === 'all'
+        ? ALL_REVIEWS
+        : ALL_REVIEWS.filter(r => r.sede === filterSede);
+
+      revTrack.innerHTML = list.map(r => {
+        const sourceIcon = r.source === 'Google' ? '⭐ Google Reviews' : '🦉 TripAdvisor';
+        const sedeClass = r.sede === 'sesso' ? 'rev-sede-tag sesso' : 'rev-sede-tag';
+        return `
+          <article class="review-slide-card">
+            <div>
+              <div class="rev-card-top">
+                <span class="rev-source-badge">${sourceIcon}</span>
+                <span class="${sedeClass}">${r.sedeLabel}</span>
+              </div>
+              <div class="rev-stars" style="margin: 12px 0 8px;">★★★★★</div>
+              <p class="rev-text">"${r.text}"</p>
+            </div>
+            <div class="rev-author">
+              <strong>${r.author}</strong>
+              <span>${r.date}</span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // --- GESTIONE VIDEO SOCIAL DA GOOGLE SHEET (TAB: SOCIAL) ---
+    function parseSocialCSV(text) {
+      const lines = text.trim().split(/\r?\n/);
+      return lines.slice(1).map(line => {
+        const cols = splitCSVLine(line);
+        const title = cols[0] || '';
+        const url = cols[1] || '';
+        const visRaw = (cols[2] || 'vero').toLowerCase();
+        const disp = !['falso', 'false', '0', 'no'].includes(visRaw);
+        return { title, url, disp };
+      }).filter(item => item.url && item.url.startsWith('http') && item.disp);
+    }
+
+    async function fetchSocialVideos() {
+      try {
+        const res = await fetch(SOCIAL_SHEET_CSV_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const csvText = await res.text();
+        const parsed = parseSocialCSV(csvText);
+        if (!parsed.length) throw new Error('Nessun video valido nel tab SOCIAL');
+        return parsed;
+      } catch (err) {
+        console.warn('Tab SOCIAL non trovato o vuoto, uso video di fallback:', err);
+        return FALLBACK_SOCIAL_VIDEOS;
+      }
+    }
+
+    function extractTikTokVideoId(rawUrl) {
+      const match = rawUrl.match(/\/video\/(\d+)/) || rawUrl.match(/\/v\/(\d+)/);
+      return match ? match[1] : null;
+    }
+
+    async function buildSocialEmbedCard(item) {
+      const rawUrl = item.url.trim();
+      const igMatch = rawUrl.match(/instagram\.com\/(?:p|reel|reels)\/([a-zA-Z0-9_-]+)/);
+      const ttId = extractTikTokVideoId(rawUrl);
+
+      if (igMatch && igMatch[1]) {
+        const embedSrc = `https://www.instagram.com/reel/${igMatch[1]}/embed/`;
+        return `
+          <article class="social-embed-card">
+            <div class="embed-platform-bar">
+              <span>${item.title || '📸 Instagram Reel'}</span>
+              <a href="${rawUrl}" target="_blank" rel="noopener">Apri App ↗</a>
+            </div>
+            <div class="embed-frame-wrap">
+              <iframe
+                src="${embedSrc}"
+                loading="lazy"
+                allowtransparency="true"
+                allow="encrypted-media; autoplay; fullscreen"
+                scrolling="no">
+              </iframe>
+            </div>
+          </article>
+        `;
+      }
+
+      if (ttId) {
+        return `
+          <article class="social-embed-card">
+            <div class="embed-platform-bar">
+              <span>${item.title || '🎵 TikTok Video'}</span>
+              <a href="${rawUrl}" target="_blank" rel="noopener">Apri App ↗</a>
+            </div>
+            <div class="embed-frame-wrap">
+              <blockquote class="tiktok-embed" cite="${rawUrl}" data-video-id="${ttId}">
+                <section>
+                  <a target="_blank" href="${rawUrl}">Guarda su TikTok</a>
+                </section>
+              </blockquote>
+            </div>
+          </article>
+        `;
+      }
+
+      return `
+        <article class="social-embed-card">
+          <div class="embed-platform-bar">
+            <span>${item.title || '🎵 Video Social'}</span>
+            <a href="${rawUrl}" target="_blank" rel="noopener">Apri App ↗</a>
+          </div>
+          <div class="embed-frame-wrap" style="display:grid;place-items:center;padding:24px;text-align:center;">
+            <a href="${rawUrl}" target="_blank" rel="noopener" class="btn btn-gold">▶ Guarda Video</a>
+          </div>
+        </article>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Mostra subito il fallback e poi aggiorna dal tab RECENSIONI di Google Sheets
+      renderReviewsCarousel('all');
+      ALL_REVIEWS = await fetchSheetReviews();
+      const activeFilter = document.querySelector('.rev-pill-btn.active')?.dataset.rfilter || 'all';
+      renderReviewsCarousel(activeFilter);
+
+      document.querySelectorAll('.rev-pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.rev-pill-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderReviewsCarousel(btn.dataset.rfilter);
+        });
+      });
+
+      const revTrack = document.getElementById('reviews-track');
+      document.getElementById('rev-prev')?.addEventListener('click', () => {
+        revTrack?.scrollBy({ left: -365, behavior: 'smooth' });
+      });
+      document.getElementById('rev-next')?.addEventListener('click', () => {
+        revTrack?.scrollBy({ left: 365, behavior: 'smooth' });
+      });
+
+      // 2. Carica i video di Dorel dal tab SOCIAL del Google Sheet
+      const track = document.getElementById('reels-track');
+      if (track) {
+        const videos = await fetchSocialVideos();
+        const cards = await Promise.all(videos.map(buildSocialEmbedCard));
+        track.innerHTML = cards.join('');
+
+        if (track.querySelector('.tiktok-embed')) {
+          const oldScript = document.getElementById('tiktok-embed-sdk');
+          if (oldScript) oldScript.remove();
+          const ttScript = document.createElement('script');
+          ttScript.id = 'tiktok-embed-sdk';
+          ttScript.src = 'https://www.tiktok.com/embed.js';
+          ttScript.async = true;
+          document.body.appendChild(ttScript);
+        }
+      }
+
+      // 3. Scomparsa Header allo scroll in giù / Ricomparsa in su
+      const siteHeader = document.querySelector('.site-header');
+      let lastScrollY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        if (!siteHeader) return;
+        const currentScrollY = window.scrollY;
+        if (currentScrollY <= 80) {
+          siteHeader.classList.remove('header-hidden');
+        } else if (currentScrollY - lastScrollY > 10) {
+          siteHeader.classList.add('header-hidden');
+        } else if (lastScrollY - currentScrollY > 10) {
+          siteHeader.classList.remove('header-hidden');
+        }
+        lastScrollY = currentScrollY;
+      }, { passive: true });
+
+      // 4. Frecce scorrimento Carosello Reels
+      document.getElementById('reel-prev')?.addEventListener('click', () => {
+        track?.scrollBy({ left: -335, behavior: 'smooth' });
+      });
+      document.getElementById('reel-next')?.addEventListener('click', () => {
+        track?.scrollBy({ left: 335, behavior: 'smooth' });
+      });
+
+      // 5. Lightbox click sulle foto della galleria
+      const galleryItems = document.querySelectorAll('.bento-item');
+      const lightbox = document.getElementById('gallery-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          if (img && lightbox && lightboxImg) {
+            lightboxImg.src = img.src;
+            lightbox.classList.remove('hidden');
+          }
+        });
+      });
+
+      lightboxClose?.addEventListener('click', () => lightbox.classList.add('hidden'));
+      lightbox?.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
