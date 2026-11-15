@@ -400,11 +400,13 @@ async function initBanditoMenuApp(sedeAttiva) {
     const storageKey = `bandito_tray_${sedeAttiva}`;
     let tray = [];
     try {
-        tray = JSON.parse(sessionStorage.getItem(storageKey) || '[]');
+        const parsedTray = JSON.parse(sessionStorage.getItem(storageKey) || '[]');
+        tray = Array.isArray(parsedTray)
+            ? parsedTray.filter(i => i && typeof i.name === 'string' && typeof i.price === 'number' && !isNaN(i.price))
+            : [];
     } catch (e) {
         tray = [];
     }
-
     function getTotalCount() {
         return tray.reduce((acc, i) => acc + (i.qty || 1), 0);
     }
