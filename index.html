@@ -901,7 +901,7 @@
         // 1. Carica Recensioni (Google Sheets -> Backup GitHub -> Messaggio cortesia)
         const revData = await fetchSheetReviews();
         ALL_REVIEWS = revData.items;
-        const activeFilter = document.querySelector('.rev-pill-btn.active') ? .dataset.rfilter || 'all';
+        const activeFilter = document.querySelector('.rev-pill-btn.active') ?.dataset.rfilter || 'all';
         renderReviewsCarousel(activeFilter);
 
         document.querySelectorAll('.rev-pill-btn').forEach(btn => {
@@ -913,11 +913,11 @@
         });
 
         const revTrack = document.getElementById('reviews-track');
-        document.getElementById('rev-prev') ? .addEventListener('click', () => {
-            revTrack ? .scrollBy({ left: -365, behavior: 'smooth' });
+        document.getElementById('rev-prev') ?.addEventListener('click', () => {
+            revTrack ?.scrollBy({ left: -365, behavior: 'smooth' });
         });
-        document.getElementById('rev-next') ? .addEventListener('click', () => {
-            revTrack ? .scrollBy({ left: 365, behavior: 'smooth' });
+        document.getElementById('rev-next') ?.addEventListener('click', () => {
+            revTrack ?.scrollBy({ left: 365, behavior: 'smooth' });
         });
 
         // 2. Carica Video Social (Google Sheets -> Backup GitHub -> Messaggio cortesia)
@@ -934,7 +934,7 @@
                 track.innerHTML = socialData.items.map(buildSocialEmbedCard).join('');
 
                 if (track.querySelector('.tiktok-embed')) {
-                    document.getElementById('tiktok-embed-sdk') ? .remove();
+                    document.getElementById('tiktok-embed-sdk') ?.remove();
                     const ttScript = document.createElement('script');
                     ttScript.id = 'tiktok-embed-sdk';
                     ttScript.src = 'https://www.tiktok.com/embed.js';
@@ -947,11 +947,11 @@
 
 
         // 4. Frecce scorrimento Carosello Reels
-        document.getElementById('reel-prev') ? .addEventListener('click', () => {
-            track ? .scrollBy({ left: -335, behavior: 'smooth' });
+        document.getElementById('reel-prev') ?.addEventListener('click', () => {
+            track ?.scrollBy({ left: -335, behavior: 'smooth' });
         });
-        document.getElementById('reel-next') ? .addEventListener('click', () => {
-            track ? .scrollBy({ left: 335, behavior: 'smooth' });
+        document.getElementById('reel-next') ?.addEventListener('click', () => {
+            track ?.scrollBy({ left: 335, behavior: 'smooth' });
         });
 
         // 5. Lightbox click sulle foto della galleria
@@ -970,8 +970,8 @@
             });
         });
 
-        lightboxClose ? .addEventListener('click', () => lightbox.classList.add('hidden'));
-        lightbox ? .addEventListener('click', e => {
+        lightboxClose ?.addEventListener('click', () => lightbox.classList.add('hidden'));
+        lightbox ?.addEventListener('click', e => {
             if (e.target === lightbox) lightbox.classList.add('hidden');
         });
     });
