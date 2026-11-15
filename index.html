@@ -2,6 +2,7 @@
 <html lang="it">
 
 <head>
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bandito Burrito | Tex-Mex, Burger & Craft Beer — Reggio Emilia & Sesso</title>
@@ -873,13 +874,13 @@
               <span>${safeTitle || '🎵 TikTok Video'}</span>
               <a href="${safeUrl}" target="_blank" rel="noopener">Apri App ↗</a>
             </div>
-            <div class="embed-frame-wrap">
-              <blockquote class="tiktok-embed" cite="${safeUrl}" data-video-id="${ttId}">
-                <section>
-                  <a target="_blank" rel="noopener" href="${safeUrl}">Guarda su TikTok</a>
-                </section>
-              </blockquote>
-            </div>
+           <div class="embed-frame-wrap">
+            <blockquote class="tiktok-embed" cite="${safeUrl}" data-video-id="${ttId}">
+              <section>
+                <a target="_blank" rel="noopener noreferrer" href="${safeUrl}">Guarda su TikTok</a>
+              </section>
+            </blockquote>
+          </div>
           </article>
         `;
         }
