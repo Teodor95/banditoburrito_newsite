@@ -357,7 +357,7 @@ async function initBanditoMenuApp(sedeAttiva) {
     const container = document.getElementById('menu-container');
     const tabsBar = document.getElementById('category-tabs');
 
-    document.getElementById('sync-indicator') ? .remove();
+    document.getElementById('sync-indicator') ?.remove();
 
     if (container) {
         container.innerHTML = `<p style="color:var(--muted);padding:40px 0;text-align:center;">Caricamento menu in corso...</p>`;
@@ -437,7 +437,7 @@ async function initBanditoMenuApp(sedeAttiva) {
         saveAndRefreshTray();
     }
 
-    container ? .addEventListener('click', e => {
+    container ?.addEventListener('click', e => {
         const btn = e.target.closest('.btn-add-dish');
         if (!btn) return;
         addToTray(btn.dataset.name, parseFloat(btn.dataset.price) || 0);
@@ -540,9 +540,9 @@ async function initBanditoMenuApp(sedeAttiva) {
             modal.classList.add('hidden');
         };
     }
-    document.getElementById('btn-open-tray') ? .addEventListener('click', renderTrayModal);
+    document.getElementById('btn-open-tray') ?.addEventListener('click', renderTrayModal);
 
-    tabsBar ? .querySelectorAll('.cat-tab').forEach(tab => {
+    tabsBar ?.querySelectorAll('.cat-tab').forEach(tab => {
         tab.addEventListener('click', () => {
             const isAlreadyActive = tab.classList.contains('active');
             tabsBar.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
@@ -557,30 +557,30 @@ async function initBanditoMenuApp(sedeAttiva) {
         });
     });
 
-    document.getElementById('menu-search') ? .addEventListener('input', e => {
+    document.getElementById('menu-search') ?.addEventListener('input', e => {
         searchQuery = e.target.value.trim().toLowerCase();
         render();
     });
 
-    document.querySelector('[data-filter="new"]') ? .addEventListener('click', e => {
+    document.querySelector('[data-filter="new"]') ?.addEventListener('click', e => {
         filterNew = !filterNew;
         e.currentTarget.classList.toggle('active', filterNew);
         render();
     });
 
-    document.querySelector('[data-filter="spicy"]') ? .addEventListener('click', e => {
+    document.querySelector('[data-filter="spicy"]') ?.addEventListener('click', e => {
         filterSpicy = !filterSpicy;
         e.currentTarget.classList.toggle('active', filterSpicy);
         render();
     });
 
-    document.querySelector('[data-filter="veg"]') ? .addEventListener('click', e => {
+    document.querySelector('[data-filter="veg"]') ?.addEventListener('click', e => {
         filterVeg = !filterVeg;
         e.currentTarget.classList.toggle('active', filterVeg);
         render();
     });
 
-    document.getElementById('btn-allergens') ? .addEventListener('click', () => {
+    document.getElementById('btn-allergens') ?.addEventListener('click', () => {
         if (!modal || !modalContent) return;
         modalContent.innerHTML = `
       <h3 style="font-family:var(--font-display);font-size:28px;margin-bottom:8px;">ℹ️ ALLERGENI E PRODOTTI CONGELATI</h3>
@@ -604,7 +604,7 @@ async function initBanditoMenuApp(sedeAttiva) {
         document.getElementById('close-modal-all').onclick = () => modal.classList.add('hidden');
     });
 
-    modal ? .addEventListener('click', e => {
+    modal ?.addEventListener('click', e => {
         if (e.target === modal) modal.classList.add('hidden');
     });
 
@@ -750,7 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-        document.getElementById('app-modal') ? .classList.add('hidden');
-        document.getElementById('gallery-lightbox') ? .classList.add('hidden');
+        document.getElementById('app-modal') ?.classList.add('hidden');
+        document.getElementById('gallery-lightbox') ?.classList.add('hidden');
     }
 });
