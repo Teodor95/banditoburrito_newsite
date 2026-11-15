@@ -791,49 +791,51 @@
     let ALL_REVIEWS = [];
 
     function renderReviewsCarousel(filterSede = 'all') {
-        const revTrack = document.getElementById('reviews-track');
-        if (!revTrack) return;
+            const revTrack = document.getElementById('reviews-track');
+            if (!revTrack) return;
 
-        if (!ALL_REVIEWS.length) {
-            revTrack.innerHTML = `
-          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:28px 20px;width:100%;text-align:center;color:var(--muted);">
-            Recensioni in aggiornamento. Clicca sui link qui sotto per leggerle direttamente su Google e TripAdvisor!
-          </div>
-        `;
-            return;
-        }
-
-        const list = filterSede === 'all' ?
-            ALL_REVIEWS :
-            ALL_REVIEWS.filter(r => r.sede === filterSede);
-
-        if (!list.length) {
-            revTrack.innerHTML = `<p style="color:var(--muted);padding:20px;width:100%;text-align:center;">Nessuna recensione trovata per questa sede.</p>`;
-            return;
-        }
-
-        revTrack.innerHTML = list.map(r => {
-            const sourceIcon = r.source === 'Google' ? '⭐ Google Reviews' : '🦉 TripAdvisor';
-            const sedeClass = r.sede === 'sesso' ? 'rev-sede-tag sesso' : 'rev-sede-tag';
-            return `
-          <article class="review-slide-card">
-            <div>
-              <div class="rev-card-top">
-                <span class="rev-source-badge">${sourceIcon}</span>
-                <span class="${sedeClass}">${escapeHTML(r.sedeLabel)}</span>
+            if (!ALL_REVIEWS.length) {
+                revTrack.innerHTML = `
+              <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:28px 20px;width:100%;text-align:center;color:var(--muted);">
+                Recensioni in aggiornamento. Clicca sui link qui sotto per leggerle direttamente su Google e TripAdvisor!
               </div>
-              <div class="rev-stars" style="margin: 12px 0 8px;">★★★★★</div>
-              <p class="rev-text">"${escapeHTML(r.text)}"</p>
-            </div>
-            <div class="rev-author">
-              <strong>${escapeHTML(r.author)}</strong>
-              <span>${escapeHTML(r.date)}</span>
-            </div>
-          </article>
-        `;
-        }).join('');
-    }
+            `;
+                return;
+            }
 
+            const list = filterSede === 'all' ?
+                ALL_REVIEWS :
+                ALL_REVIEWS.filter(r => r.sede === filterSede);
+
+            if (!list.length) {
+                revTrack.innerHTML = `<p style="color:var(--muted);padding:20px;width:100%;text-align:center;">Nessuna recensione trovata per questa sede.</p>`;
+                return;
+            }
+
+            revTrack.innerHTML = list.map(r => {
+                const sourceIcon = r.source === 'Google' ? '⭐ Google Reviews' : '🦉 TripAdvisor';
+                const sedeClass = r.sede === 'sesso' ? 'rev-sede-tag sesso' : 'rev-sede-tag';
+                const numStars = Math.min(Math.max(Number(r.stars) || 5, 1), 5);
+                const starsHTML = '★'.repeat(numStars) + '☆'.repeat(5 - numStars);
+
+                return `
+              <article class="review-slide-card">
+                <div>
+                  <div class="rev-card-top">
+                    <span class="rev-source-badge">${sourceIcon}</span>
+                    <span class="${sedeClass}">${escapeHTML(r.sedeLabel)}</span>
+                  </div>
+                  <div class="rev-stars" style="margin: 12px 0 8px;">${starsHTML}</div>
+                  <p class="rev-text">"${escapeHTML(r.text)}"</p>
+                </div>
+                <div class="rev-author">
+                  <strong>${escapeHTML(r.author)}</strong>
+                  <span>${escapeHTML(r.date)}</span>
+                </div>
+              </article>
+            `;
+            }).join('');
+        }
     function extractTikTokVideoId(rawUrl) {
         const match = rawUrl.match(/\/video\/(\d+)/) || rawUrl.match(/\/v\/(\d+)/);
         return match ? match[1] : null;
