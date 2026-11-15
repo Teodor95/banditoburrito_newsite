@@ -1,73 +1,68 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Menu Nuova Sede | Bandito Burrito</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Viale Città di Cutro | Bandito Burrito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="qr-app-body">
-
-  <!-- TOP BAR FISSA CENTRATA -->
-  <header class="qr-header">
-    <div class="container qr-header-inner">
-      <a href="index.html" class="brand-compact">
-        <img src="images/picwish_ew.webp" alt="Logo" class="brand-logo-sm">
-        <div>
-          <strong>BANDITO BURRITO</strong>
-          <span class="active-sede-badge">📍 MENU VIA SESSO 2</span>
+    <!-- TOP BAR FISSA CENTRATA -->
+    <header class="qr-header">
+        <div class="container qr-header-inner">
+            <a href="index.html" class="brand-compact">
+                <img src="images/picwish_ew.webp" alt="Logo" class="brand-logo-sm">
+                <div>
+                    <strong>BANDITO BURRITO</strong>
+                    <span class="active-sede-badge">📍 MENU VIALE CITTÀ DI CUTRO - RE</span>
+                </div>
+            </a>
+            <div class="qr-nav-actions">
+                <a href="index.html" class="qr-nav-btn">🏠 Home</a>
+                <a href="contatti.html" class="qr-nav-btn">📍 Contatti</a>
+                <button id="btn-allergens" class="qr-nav-btn">ℹ️ Allergeni</button>
+            </div>
         </div>
-      </a>
-
-      <div class="qr-nav-actions">
-        <a href="index.html" class="qr-nav-btn">🏠 Home</a>
-        <a href="contatti.html" class="qr-nav-btn">📍 Contatti</a>
-        <button id="btn-allergens" class="qr-nav-btn">ℹ️ Allergeni</button>
-      </div>
+        <!-- RICERCA E I 3 FILTRI CENTRATI -->
+        <div class="container qr-controls">
+            <input type="search" id="menu-search" placeholder="🔍 Cerca piatto, birra o ingrediente..." autocomplete="off">
+            <div class="quick-tags">
+                <button class="filter-chip" data-filter="new">✨ New</button>
+                <button class="filter-chip" data-filter="spicy">🌶️ Piccanti</button>
+                <button class="filter-chip" data-filter="veg">🌱 Veg / Senza Glutine</button>
+            </div>
+        </div>
+        <!-- BARRA CATEGORIE CENTRATA -->
+        <div class="container">
+            <nav class="cat-scroll-bar" id="category-tabs"></nav>
+        </div>
+    </header>
+    <main class="container qr-main">
+        <div id="menu-container"></div>
+    </main>
+    <!-- BARRA BLOCCO NOTE AL TAVOLO -->
+    <div id="table-tray" class="table-tray hidden">
+        <div class="tray-info">
+            <span id="tray-count">0 selezionati</span>
+            <strong id="tray-total">€ 0,00</strong>
+        </div>
+        <button id="btn-open-tray" class="btn btn-dark">Lista per il Cameriere 📋</button>
     </div>
-
-    <!-- RICERCA E I 3 FILTRI CENTRATI -->
-    <div class="container qr-controls">
-      <input type="search" id="menu-search" placeholder="🔍 Cerca piatto, birra o ingrediente..." autocomplete="off">
-      <div class="quick-tags">
-        <button class="filter-chip" data-filter="new">✨ New</button>
-        <button class="filter-chip" data-filter="spicy">🌶️ Piccanti</button>
-        <button class="filter-chip" data-filter="veg">🌱 Veg / Senza Glutine</button>
-      </div>
+    <!-- MODALE -->
+    <div id="app-modal" class="modal-backdrop hidden">
+        <div class="modal-card" id="modal-content"></div>
     </div>
-
-    <!-- BARRA CATEGORIE CENTRATA -->
-    <div class="container">
-      <nav class="cat-scroll-bar" id="category-tabs"></nav>
-    </div>
-  </header>
-
-  <main class="container qr-main">
-    <div id="menu-container"></div>
-  </main>
-
-  <!-- BARRA BLOCCO NOTE AL TAVOLO -->
-  <div id="table-tray" class="table-tray hidden">
-    <div class="tray-info">
-      <span id="tray-count">0 selezionati</span>
-      <strong id="tray-total">€ 0,00</strong>
-    </div>
-    <button id="btn-open-tray" class="btn btn-dark">Lista per il Cameriere 📋</button>
-  </div>
-
-  <!-- MODALE -->
-  <div id="app-modal" class="modal-backdrop hidden">
-    <div class="modal-card" id="modal-content"></div>
-  </div>
-
-  <script src="js/menu-engine.js"></script>
-  <script>
+    <script src="js/menu-engine.js"></script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-      initBanditoMenuApp('sede2');
+        initBanditoMenuApp('sede2');
     });
-  </script>
+    </script>
 </body>
+
 </html>
