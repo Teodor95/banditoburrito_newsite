@@ -690,7 +690,24 @@ function parseReviewsCSV(text) {
         const sedeLabel = sede === 'sesso' ? '🚀 Sede Sesso' : '📍 Sede RE';
 
         const reviewText = cols[3] || '';
-        const visRaw = (cols[4] || 'vero').toLowerCase();
+
+        // Rileva automaticamente in quale colonna (E oppure F) si trovano Stelle e Disponibile
+        const col4 = (cols[4] || '').trim();
+        const col5 = (cols[5] || '').trim();
+        let rawStars = '5';
+        let visRaw = 'vero';
+
+        if (/^[1-5]$/.test(col4)) {
+            // Caso: Colonna E = Stelle, Colonna F = Disponibile
+            rawStars = col4;
+            visRaw = (col5 || 'vero').toLowerCase();
+        } else {
+            // Caso: Colonna E = Disponibile, Colonna F = Stelle
+            visRaw = (col4 || 'vero').toLowerCase();
+            rawStars = col5 || '5';
+        }
+
+        const stars = Math.min(Math.max(parseInt(rawStars, 10) || 5, 1), 5);
         const disp = !['falso', 'false', '0', 'no'].includes(visRaw);
 
         return {
@@ -698,13 +715,13 @@ function parseReviewsCSV(text) {
             source,
             sede,
             sedeLabel,
+            stars,
             date: `Recensione verificata ${source}`,
             text: reviewText,
             disp
         };
     }).filter(r => r.text.length > 5 && r.disp);
 }
-
 async function fetchSheetReviews() {
     if (BANDITO_CONFIG.REVIEWS_SHEET_URL) {
         try {
