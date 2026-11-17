@@ -1,0 +1,60 @@
+Sede,Categoria,Nome,Ingredienti,Prezzo,Badge,Piccante,Allergeni,Disponibile,Immagine
+tutte,fuori-menu,Battuta di Fassona Piemontese,Carne cruda di Fassona Piemontese selezionata,15,🔥 Fuori Menu,0,NO,VERO,https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80
+tutte,fuori-menu,Focaccia Fatta in Casa (Crudo e Burrata),"Prosciutto crudo, burrata e pesto",10,"Fatta in Casa, 🔥 Fuori Menu",0,"Glutine, Latte, Frutta a Guscio",VERO,
+tutte,fuori-menu,Focaccia Fatta in Casa (Pancetta),Pancetta e scaglie di parmigiano,10,"Fatta in Casa, 🔥 Fuori Menu",0,"Glutine, Latte",VERO,
+tutte,fuori-menu,Stinco di Maiale,Servito con patate e senape al miele,16,"🔥 Speciale, 🔥 Fuori Menu",0,Senape,VERO,images/stinco.webp
+tutte,fritti,Alette di Pollo,Accompagnate con la nostra salsa,6,🔥 Speciale,0,"Surgelato, Glutine",VERO,images/alette.webp
+tutte,fritti,Patatine Fritte,Accompagnate con salse,4,,0,Surgelato,VERO,images/patatine.webp
+tutte,fritti,Pollo Croccante,Alla Paprika servito con salsa ranch (200 gr),6,Croccante,0,"Surgelato, Glutine, Latte, Uova",VERO,images/pollo.webp
+tutte,fritti,Jalapeños Piccanti,Ripieni di formaggio filante,6,🌶️ Piccante,2,"Surgelato, Glutine, Latte",VERO,images/jalapenos.webp
+tutte,fritti,Nachos Cheese,Croccanti triangoli di tortilla con un cuore filante di cheddar e peperoni,6,🌶️ Piccante,0,"Surgelato, Latte",VERO,images/nachos.webp
+tutte,burritos,Pork Burrito,"Stracotto di maiale, fagioli, formaggio, insalata, pomodoro, jalapeños, cipollotto fresco, salsa piccante, guacamole. (Accompagnato con nachos e le salse del Bandito)",12,⭐ Best Seller,1,"Surgelato, Glutine, Latte",VERO,images/burrito_pork.webp
+tutte,burritos,Chicken Burrito,"Pollo marinato alla paprika e birra, fagioli, formaggio, insalata, pomodoro, jalapeños, cipollotto fresco, salsa piccante, guacamole. (Accompagnato con nachos e le salse del Bandito)",11,,1,"Surgelato, Glutine, Latte",VERO,https://images.unsplash.com/photo-1584031036380-3fb6f2d51880?auto=format&fit=crop&w=700&q=80
+tutte,burritos,Smoked Salmon Burrito,"Salmone affumicato, crema di formaggio, insalata, pomodoro, guacamole, fagioli, cipollotto fresco, salsa piccante. (Accompagnato con nachos e le salse del Bandito)",13,Novità,1,"Surgelato, Glutine, Latte, Pesce",VERO,
+tutte,hamburger,Bandito Burger,"150 gr di Bufalo fresco, salsa messicana, insalata, pane bianco fatto in casa, pomodoro, pancetta, stracciatella. (Accompagnato con patate alle erbe fritte)",14,👑 Signature,0,"Surgelato, Glutine, Latte",VERO,images/bandito_burger.webp
+tutte,hamburger,Pablo Burger,"200 gr di manzo fresco (Macelleria Bonini), pane rustico fatto in casa, maionese alla senape, cheddar, bacon, pomodoro, insalata iceberg e cipolla caramellata. (Accompagnato con patate alle erbe fritte)",14,Macelleria Bonini,0,"Surgelato, Glutine, Latte, Uova, Senape",VERO,images/pablo.webp
+tutte,hamburger,Pulled Pork Burger,"150 gr di Pulled Pork, pane rustico fatto in casa, cheddar, cipolla caramellata, verza marinata, maionese, carote e salsa BBQ. (Accompagnato con patate alle erbe fritte)",14,,0,"Surgelato, Glutine, Latte, Uova, Senape",VERO,images/pulled_burger.webp
+tutte,hamburger,Veg Burger,"Hamburger di spinaci, pane bianco fatto in casa, maionese all'aglio nero, scaglie di Parmigiano Reggiano, pomodoro e insalata. (Accompagnato con patate alle erbe fritte)",8,🌱 Vegetariano,0,"Surgelato, Glutine, Latte, Uova",VERO,images/veg_burger.webp
+tutte,hamburger,Smash Burger,"200 gr di manzo fresco, 3 fette cheddar, 2 bacon, cipolla caramellata, cipolla croccante e salsa burger. (Accompagnato con patate alle erbe fritte)",16,🔥 Smash,0,"Surgelato, Glutine, Latte, Uova, Senape",VERO,images/smash_burger.webp
+tutte,hamburger,Criminale Smash Burger,"2 patty di carne, pane fresco, pancetta croccante, cipolla candita, formaggio di capra, salsa smoke BBQ. (Accompagnato con patate alle erbe fritte)",16,🔥 Il Criminale,0,"Surgelato, Glutine, Latte",VERO,images/criminale.webp
+tutte,taglieri,Mix di Salumi,"Prosciutto crudo di Parma 24 mesi, pancetta nostrana, mortadella bolognese, salame nostrano e burrata pugliese. (Servito con la pinsa romana)",13,Con Pinsa Romana,0,"Surgelato, Glutine, Latte",VERO,images/tagliere.webp
+tutte,griglia,Spare Ribs,"500 gr costine di maiale marinate alla birra, cotte a bassa temperatura con salsa BBQ. (Accompagnate con patatine fritte)",16,🔥 Cottura Lenta,0,"Surgelato, Senape, Sedano",VERO,images/spare_ribs.webp
+tutte,griglia,Scottona Iberica,300 gr di controfiletto di Scottona Iberica alla griglia. (Accompagnata con patatine fritte),24,🥩 Top Grill,0,Surgelato,VERO,images/scottona.webp
+tutte,dessert,Tiramisù,Dessert artigianale fatto in casa,5,Fatto in Casa,0,"Glutine, Latte, Uova",VERO,
+tutte,dessert,Mascarpone,Crema al mascarpone con scaglie di cioccolato,5,Fatto in Casa,0,"Latte, Uova, Soia",VERO,
+tutte,dessert,Panna cotta,Servita ai frutti di bosco,5,Fatto in Casa,0,Latte,VERO,
+tutte,dessert,Churros,Churros caldi e croccanti,4,,0,"Surgelato, Glutine, Latte, Uova",VERO,
+tutte,dessert,Cheesecake,Guarnita al caramello salato,5,Fatto in Casa,0,"Glutine, Latte, Uova",VERO,
+tutte,birre-spina,Aktien Hell,"33 cl. – 5% | Helles di colore giallo paglierino chiaro, schiuma fine e persistente. Molto gradevole e beverina, per tutte le stagioni.","3,5",33 cl,0,Glutine,VERO,
+tutte,birre-spina,Aktien Hell,"50 cl. – 5% | Helles di colore giallo paglierino chiaro, schiuma fine e persistente. Molto gradevole e beverina, per tutte le stagioni.",5,50 cl,0,Glutine,VERO,
+tutte,birre-spina,Delirium Tremens,"50 cl. – 8.5% | Bionda ad alta fermentazione dorata intensa. Aromi complessi di spezie, frutta candita e agrumi; sapori di malto dolce, miele e pepe bianco.",6,50 cl • 8.5%,0,Glutine,VERO,
+tutte,birre-spina,Leffe Rossa,"33 cl. – 6.5% | Birra d'abbazia ad alta fermentazione ambrata scura. Bouquet di caramello, frutta secca, spezie dolci e malto tostato.",5,33 cl • 6.5%,0,Glutine,VERO,
+tutte,birre-spina,Bandito Burrito IPA KM 0,"40 cl. – 6.5% | Color arancio acceso, note agrumate di mandarino intrecciate a sentori maltati. Amaro lungo, secco e agrumato.",6,🍺 IPA del Bandito KM0,0,Glutine,VERO,
+tutte,birre-spina,Guinness,"25 / 50 cl. – 4.2% | Stout scura ad alta fermentazione con densa schiuma beige da malto d'orzo tostato. Sapore amaro e tostato, corpo cremoso.",5,25 / 50 cl,0,Glutine,VERO,
+tutte,birre-spina,Hoegaarden,"50 cl. – 4.9% | Birra bianca belga (Witbier) giallo paglierino torbido. Bouquet aromatico di coriandolo, scorza d'arancia e lievito fresco.",15,"50 cl, Witbier,Invernale",0,Glutine,VERO,
+tutte,birre-bottiglia,Ayinger Bräuweisse,"50 cl. – 5.1% | Giallo paglierino opalescente, schiuma cremosa. Sentori di frumento, lievito e inconfondibile fragranza di banana.",5,50 cl • Weisse,0,Glutine,VERO,
+tutte,birre-bottiglia,Zerocinquanta Guglielmo,"50 cl. – 4.9% | Lager a bassa fermentazione chiara, profumata e leggera, tra la freschezza del luppolo e le note impalpabili dei lieviti.",6,50 cl • Lager,0,Glutine,VERO,
+tutte,birre-bottiglia,Zerocinquanta Cordelia,"50 cl. – 5.8% | IPA dal gusto ricco ma equilibrato che intreccia l'intensità del luppolo con sentori di fiori, agrumi e note fruttate.",6,50 cl • IPA,0,Glutine,VERO,
+tutte,birre-bottiglia,Zerocinquanta Amleto,"50 cl. – 6.5% | Rossa in puro stile tedesco a bassa fermentazione, decisamente ambrata, delicatamente amara e dal profumo intenso.",6,50 cl • Rossa,0,Glutine,VERO,
+tutte,birre-bottiglia,Theresianer Pils non Filtrata,50 cl. – 5.0% | Non filtrata giallo paglierino con note erbacee del luppolo e tocco speziato. Al palato è secca con amaro piacevole.,6,50 cl • Non Filtrata,0,Glutine,VERO,
+tutte,birre-bottiglia,Birrificio Dada – Lop Lop (Golden Lager),"50 cl. – 5.0% | Dorata carica. Luppoli Chinook (Americano) e Styrian (Sloveni) con note erbacee, speziate e delicata componente di miele.",7,50 cl • Artigianale,0,Glutine,VERO,https://www.cantinadellabirra.it/media/magpleasure/mpblog/post_thumbnail_file/9/5/cache/1/ece9a24a761836a70934a998c163f8c8/95068f7f78c5afa456add3ba24606b31.jpg
+tutte,birre-bottiglia,Birrificio Dada – Gattomao (Belgian Ale),75 cl. – 7.5% | Arancione intenso. Profumi di frutta matura (banana e pesca sciroppata) dal lievito belga e sentori caramellati.,13,75 cl • Condivisibile,0,Glutine,VERO,
+tutte,birre-bottiglia,Theresianer Senza Glutine,33 cl. – 4.8% | Lager non filtrata con processo che abbatte il glutine mantenendo intatte piacevolezza e morbidezza.,5,🌾 Senza Glutine,0,NO,VERO,
+tutte,birre-bottiglia,Forst 0.0,"33 cl. – 0% | Vivace e dissetante con piacevoli note di luppolo, gusto pieno e bilanciato a zero gradi alcolici.",5,0.0% Analcolica,0,Glutine,VERO,
+tutte,vini,lambrusc test,,20,Rosso Fermo,,Solfiti,FALSO,
+tutte,vini,Lambrusco 800 Nero,Rosso frizzante emiliano,12,Bottiglia,0,Solfiti,VERO,
+tutte,vini,Blanc De Blancs Millesimato Extra Dry Cantina Contarini,Bollicine,14,Bollicine,0,Solfiti,VERO,
+tutte,vini,Prosecco Valdobbiadene Superiore DOCG,Bollicine DOCG,18,Bollicine,0,Solfiti,VERO,
+tutte,vini,Lagrein Colterenzio,Rosso Fermo Alto Adige,22,Rosso Fermo,0,Solfiti,VERO,
+tutte,vini,Pinot Nero Colterenzio,Rosso Fermo Alto Adige,24,Rosso Fermo,0,Solfiti,VERO,
+tutte,vini,Morellino di Scansano DOCG (Cantina Roggiano),Rosso Fermo Toscano,18,Rosso Fermo,0,Solfiti,VERO,
+tutte,vini,Gewürztraminer Colterenzio,Bianco Fermo Alto Adige,22,Bianco Fermo,0,Solfiti,VERO,
+tutte,vini,Ribolla Gialla Obiz,Bianco Fermo Friulano,18,Bianco Fermo,0,NO,VERO,
+tutte,bevande,Acqua piccola,50 cl. Naturale / Frizzante,1.50,,0,NO,VERO,
+tutte,bevande,Acqua in vetro,75 cl. Naturale / Frizzante,2.50,,0,NO,VERO,
+tutte,bevande,Gassate in vetro,Coca Cola / Coca Cola Zero / Fanta / Tè Pesca / Tè Limone,3.5,,0,Solfiti,VERO,
+tutte,bevande,Spritz,Aperol / Campari Spritz,7,,0,NO,VERO,
+tutte,bevande,Cocktail (Gin Tonic),Selezione Gin Tonic secondo fascia gin scelto,8 / 9 / 10 / 12,,0,NO,VERO,
+tutte,bevande,Amari Classici,Montenegro / Sambuca / Limoncino / Jägermeister / Grappa liscia e barricata,3.5,,0,NO,VERO,
+tutte,bevande,Amari Speciali,Amaro del Capo / Jefferson,4.5,,0,NO,VERO,
+tutte,bevande,Coperto,Servizio al tavolo,"1,5",,0,NO,VERO,
